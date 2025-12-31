@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leerstand minimieren. Time-to-Rent halbieren.</title>
+    <meta property="og:title" content="Leerstand minimieren. Time-to-Rent halbieren." />
+    <meta name="twitter:title" content="Leerstand minimieren. Time-to-Rent halbieren." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              'swiss-red': '#D80018',
+              'slate-850': '#151f32',
+              'slate-900': '#0f172a',
+              'brand-blue': '#2563EB',
+            },
+            animation: {
+              'slide-up': 'slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'scroll': 'scroll 30s linear infinite',
+            },
+            keyframes: {
+              slideUpFade: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              scroll: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-50%)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f5f9;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+      }
+      
+      .glass {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      /* --- HubSpot Form Customization --- */
+      /* Note: !important is used to override HubSpot's injected inline styles/stylesheets */
+
+      /* Container spacing */
+      html body .hubspot-form-custom .hs-form-field {
+        margin-bottom: 24px !important;
+      }
+
+      /* Labels */
+      html body .hubspot-form-custom label,
+      html body .hubspot-form-custom span.hs-form-field-label {
+        display: block !important;
+        font-size: 0.875rem !important; /* text-sm */
+        font-weight: 600 !important;
+        color: #334155 !important; /* slate-700 */
+        margin-bottom: 8px !important;
+        font-family: 'Inter', sans-serif !important;
+      }
+
+      /* Inputs (Text, Email, Phone, TextArea, Select) */
+      html body .hubspot-form-custom .hs-input, 
+      html body .hubspot-form-custom fieldset input,
+      html body .hubspot-form-custom fieldset textarea,
+      html body .hubspot-form-custom fieldset select {
+        display: block !important;
+        width: 100% !important;
+        padding: 14px 16px !important;
+        background-color: #f8fafc !important; /* slate-50 */
+        border: 1px solid #e2e8f0 !important; /* slate-200 */
+        border-radius: 0.75rem !important; /* rounded-xl */
+        font-family: 'Inter', sans-serif !important;
+        font-size: 1rem !important;
+        color: #0f172a !important; /* slate-900 */
+        transition: all 0.2s ease-in-out !important;
+        box-sizing: border-box !important;
+        outline: none !important;
+        height: auto !important;
+        appearance: none !important;
+        -webkit-appearance: none !important;
+      }
+
+      /* Focus State */
+      html body .hubspot-form-custom .hs-input:focus,
+      html body .hubspot-form-custom fieldset input:focus,
+      html body .hubspot-form-custom fieldset textarea:focus,
+      html body .hubspot-form-custom fieldset select:focus {
+        border-color: #0f172a !important; /* slate-900 */
+        box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.1) !important;
+        background-color: #ffffff !important;
+      }
+
+      /* Placeholder */
+      html body .hubspot-form-custom .hs-input::placeholder {
+        color: #94a3b8 !important;
+      }
+
+      /* Submit Button Container */
+      html body .hubspot-form-custom .actions {
+        padding-top: 10px !important;
+        display: flex !important;
+        justify-content: center !important;
+      }
+
+      /* The Submit Button - Targeting multiple possible HubSpot outputs */
+      html body .hubspot-form-custom .hs-button,
+      html body .hubspot-form-custom input[type="submit"] {
+        width: 100% !important;
+        background-color: #0f172a !important; /* slate-900 matches other primary buttons */
+        background-image: none !important;
+        color: white !important;
+        font-weight: 700 !important;
+        font-size: 1rem !important;
+        padding: 16px 24px !important;
+        border-radius: 1rem !important; /* rounded-2xl */
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+        border: none !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-family: 'Inter', sans-serif !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+        text-shadow: none !important;
+        -webkit-appearance: none !important;
+      }
+
+      html body .hubspot-form-custom .hs-button:hover,
+      html body .hubspot-form-custom input[type="submit"]:hover {
+        background-color: #1e293b !important; /* slate-800 */
+        transform: translateY(-2px) !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+      }
+
+      html body .hubspot-form-custom .hs-button:active,
+      html body .hubspot-form-custom input[type="submit"]:active {
+        transform: translateY(0) !important;
+      }
+
+      /* Error Messages */
+      html body .hubspot-form-custom .hs-error-msg {
+        color: #ef4444 !important; /* red-500 */
+        font-size: 0.85rem !important;
+        margin-top: 6px !important;
+        font-weight: 500 !important;
+      }
+      
+      html body .hubspot-form-custom .hs-error-msgs {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      /* Legal Text / Rich Text */
+      html body .hubspot-form-custom .hs-richtext {
+        font-size: 0.75rem !important;
+        color: #94a3b8 !important; /* slate-400 */
+        margin-top: 16px !important;
+        line-height: 1.5 !important;
+      }
+      
+      html body .hubspot-form-custom .hs-richtext a {
+        color: #64748b !important;
+        text-decoration: underline !important;
+      }
+
+      /* Hide HubSpot Branding */
+      html body .hubspot-link__container {
+         display: none !important;
+         opacity: 0 !important;
+         pointer-events: none !important;
+      }
+
+      /* Layout Fixes for HubSpot Rows */
+      html body .hubspot-form-custom .hs-form-field {
+        width: 100% !important;
+        float: none !important;
+      }
+      html body .hubspot-form-custom fieldset {
+        max-width: 100% !important;
+      }
+      html body .hubspot-form-custom .hs-submit {
+         text-align: center;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.32.0",
+    "vite": "https://aistudiocdn.com/vite@^7.2.7",
+    "react-markdown": "https://aistudiocdn.com/react-markdown@^10.1.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <!-- Start of HubSpot Embed Code -->
+    <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/146982251.js"></script>
+    <!-- End of HubSpot Embed Code -->
+  </body>
+</html>

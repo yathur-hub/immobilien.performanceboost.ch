@@ -1,0 +1,5 @@
+# Dieser Ordner (public) wird für statische Assets benötigt.
+# Diese Datei stellt sicher, dass der Ordner bei Synchronisationen erhalten bleibt.
+
+User-agent: *
+Allow: /

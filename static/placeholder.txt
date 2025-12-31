@@ -1,0 +1,1 @@
+Dieser Ordner ist für statische Assets reserviert und darf nicht automatisch gelöscht werden.
